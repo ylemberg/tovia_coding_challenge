@@ -3,3 +3,6 @@ node_modules
 
 ** webpack **
 public/build
+
+** miscellaneous **
+.DS_Store
