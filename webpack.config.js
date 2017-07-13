@@ -43,20 +43,8 @@ const settings = {
       },
       {
         test: /\.css$/,
-        use: [
-          "style-loader",
-          {
-            loader: "css-loader",
-            options: {
-              modules: true,
-              sourceMap: true,
-              importLoaders: 1,
-              localIdentName: "[name]--[local]--[hash:base64:8]"
-            }
-          },
-          "postcss-loader" // has separate config, see postcss.config.js nearby
-        ]
-      },
+        use: ['style-loader', 'css-loader']
+      }
     ]
   },
   devServer: {
