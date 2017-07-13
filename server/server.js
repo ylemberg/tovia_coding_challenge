@@ -6,7 +6,7 @@ const app = express()
 app.use(express.static(`${__dirname}/../public/build`))
 app.use(bodyParser.json())
 
-const PORT = 3000
+const PORT = 1337
 
 app.listen(PORT, () => {
   console.log(`listening on port ${PORT}`)

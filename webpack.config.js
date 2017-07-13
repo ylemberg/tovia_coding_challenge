@@ -1,8 +1,8 @@
 const webpack = require('webpack')
 const path = require('path')
 
-const SRC_DIR = path.resolve(__dirname, 'app/src')
-const BUILD_DIR = path.resolve(__dirname, 'app/build')
+const SRC_DIR = path.resolve(__dirname, 'public/src')
+const BUILD_DIR = path.resolve(__dirname, 'public/build')
 
 module.exports = {
   entry: path.resolve(SRC_DIR, 'index.js'),
