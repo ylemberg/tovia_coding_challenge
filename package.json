@@ -1,0 +1,8 @@
+{
+  "name": "tovia_coding_challenge",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/ylemberg/tovia_coding_challenge.git",
+  "author": "Yuriy Lemberg <yuriy.v.lemberg@gmail.com>",
+  "license": "MIT"
+}
