@@ -13,3 +13,19 @@ export const body = {
 export const fitToParentHeight = {
   height: 100
 }
+
+export const avatar = {
+  borderRadius: '50%',
+  color: 'white',
+  'font-size': '24px',
+  height: '40px',
+  overflow: 'hidden',
+  'text-align': 'center',
+  position: 'relative',
+  'vertical-align': 'middle',
+  width: '40px',
+  'box-sizing': 'border-box',
+  'background-color': 'gray',
+  'padding-top': '10px',
+  'font-family': "'Roboto', 'Helvetica', 'Arial', sans-serif;"
+}
