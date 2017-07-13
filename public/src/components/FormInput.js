@@ -1,25 +1,26 @@
 import React, { Component } from 'react'
+import Input from 'react-toolbox/lib/input'
 
-import FormInput from './FormInput'
-import { toviaForm } from '../styling'
-
-export default class App extends Component {
+export default class FormInput extends Component {
   constructor() {
     super()
     this.state = {
-      formHeader: 'Tovia\'s Enigma'
+      text: 'FormInput'
     }
   }
+
+  handleChange(evt) {
+    console.log('evt', evt)
+  }
+
   render() {
     return (
-      <div style={toviaForm}>
-        <h3> {this.state.formHeader} </h3>
-        <FormInput />
+      <div>
+        <Input type='text' label='Name' name='name' value={this.state.name} onChange={this.handleChange.bind(this, 'name')} maxLength={16} />
       </div>
     )
   }
 }
-
 
 // import Input from 'react-toolbox/lib/input';
 

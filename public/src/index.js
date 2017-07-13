@@ -2,8 +2,9 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 
 import App from './components/App'
+import { fitToParentHeight } from './styling'
 
 ReactDOM.render(
-  <App className="fit_to_parent_height"/>,
+  <App style={fitToParentHeight} />,
   document.getElementById('root')
 )
