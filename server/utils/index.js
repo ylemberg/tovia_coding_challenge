@@ -23,7 +23,10 @@ const hashAndPersistData = formData => {
   return hash
 }
 
-const expired = expirationDate => currTime.getTime() < expirationDate.getTime()
+const expired = expirationDate => {
+  const currTime = new Date()
+  return currTime.getTime() < expirationDate.getTime()
+}
 
 const retrieveData = (potentialHash, potentialPassphrase, errCb, successCb) => {
   Message
