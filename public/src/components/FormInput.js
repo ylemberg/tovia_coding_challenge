@@ -6,7 +6,7 @@ import DatePicker from 'react-toolbox/lib/date_picker'
 import { Button } from 'react-toolbox/lib/button'
 import Dialog from 'react-toolbox/lib/dialog'
 
-import { avatar, nameLabel, wideInput, formBtns, dialogBtns } from '../styling'
+import { avatar, nameLabel, wideInput, formBtns, dialogBtns, passphrase, passphraseVal, generatePassphrase } from '../styling'
 
 export default class FormInput extends Component {
   constructor() {

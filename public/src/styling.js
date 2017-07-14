@@ -49,3 +49,19 @@ export const formBtns = {
 export const dialogBtns = {
   float: 'right'
 }
+
+export const passphrase = {
+  height: '15%',
+  margin: '0 auto',
+  width: '30%'
+}
+
+export const passphraseRow = {
+  margin: '5% auto',
+  textAlign: 'center',
+  width: '70%',
+}
+
+export const cursorPointer = {
+  cursor: 'pointer'
+}
