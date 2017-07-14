@@ -83,20 +83,22 @@ export default class App extends Component {
     return (
       <div>
         <div style={toviaForm}>
-          <h3 style={formHeader}> {this.state.formHeader} </h3>
+          <h2 style={formHeader}> {this.state.formHeader} </h2>
           <FormInput passphrase={this.state.passphrase}/>
         </div>
         <div style={passphrase}>
           <div style={passphraseRow}>
-            Your new passphrase - <TooltipLink
-                                    className="passphrase"
-                                    style={passphraseLink}
-                                    href={`#${this.state.passphrase}`}
-                                    tooltip="Click to copy to clipboard"
-                                    onClick={this.copyToClipboard}
-                                  >
-                                    {this.state.passphrase}
-                                  </TooltipLink>
+            Your new passphrase -&nbsp;
+            <TooltipLink
+              className="passphrase"
+              style={passphraseLink}
+              href={`#${this.state.passphrase}`}
+              tooltip="Click to copy to clipboard"
+              tooltipPosition="top"
+              onClick={this.copyToClipboard}
+            >
+              {this.state.passphrase}
+            </TooltipLink>
           </div>
           <div style={passphraseRow}>
             <a style={cursorPointer} onClick={this.changePassphrase}>Generate new Passphrase</a>

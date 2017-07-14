@@ -7,7 +7,7 @@ import DatePicker from 'react-toolbox/lib/date_picker'
 import { Button } from 'react-toolbox/lib/button'
 import Dialog from 'react-toolbox/lib/dialog'
 
-import { avatar, nameLabel, wideInput, formBtns, dialogBtns, passphrase, passphraseVal, generatePassphrase } from '../styling'
+import { avatar, nameLabel, wideInput, formBtns, dialogBtns, passphrase, passphraseVal, generatePassphrase, formBtnsContainer } from '../styling'
 
 export default class FormInput extends Component {
   constructor() {
@@ -101,7 +101,7 @@ export default class FormInput extends Component {
           value={this.state.date}
         />
         </div>
-         <div>
+         <div style={formBtnsContainer}>
           <Button
             style={formBtns}
             label='ENCRYPT'

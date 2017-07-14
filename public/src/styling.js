@@ -42,12 +42,16 @@ export const wideInput = {
   marginLeft: '10%'
 }
 
+export const formBtnsContainer = {
+  margin: '20px 0 5px 0'
+}
+
 export const formBtns = {
   display: 'inline-block'
 }
 
 export const dialogBtns = {
-  marginTop: '15px',
+  margin: '15px 0',
   float: 'right'
 }
 
