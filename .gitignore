@@ -6,3 +6,4 @@ public/build
 
 ** miscellaneous **
 .DS_Store
+.env

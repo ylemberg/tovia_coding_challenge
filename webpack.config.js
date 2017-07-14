@@ -1,5 +1,6 @@
-const path = require('path');
-const webpack = require('webpack');
+const path = require('path')
+const webpack = require('webpack')
+const DotenvPlugin = require('webpack-dotenv-plugin')
 
 const SRC_DIR = path.resolve(__dirname, 'public/src')
 const BUILD_DIR = path.resolve(__dirname, 'public/build')
@@ -72,6 +73,10 @@ const settings = {
     new webpack.NamedModulesPlugin(),
     new webpack.LoaderOptionsPlugin({
       debug: true
+    }),
+    new DotenvPlugin({
+      sample: './.env.example',
+      path: './.env'
     })
   ],
   watch: true
