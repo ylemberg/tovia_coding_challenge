@@ -1,7 +1,11 @@
 import React, { Component } from 'react'
 
+import Tooltip from 'react-toolbox/lib/tooltip';
+import Link from 'react-toolbox/lib/link';
 import FormInput from './FormInput'
-import { cursorPointer, passphrase, passphraseRow, toviaForm, formHeader } from '../styling'
+import { cursorPointer, passphrase, passphraseRow, toviaForm, formHeader, passphraseLink } from '../styling'
+
+const TooltipLink = Tooltip(Link);
 
 export default class App extends Component {
   constructor(props) {
@@ -15,6 +19,7 @@ export default class App extends Component {
     this.changePassphrase = this.changePassphrase.bind(this)
     this.generatePassphrase = this.generatePassphrase.bind(this)
     this.rerenderPassphrase = this.rerenderPassphrase.bind(this)
+    this.copyToClipboard = this.copyToClipboard.bind(this)
   }
 
   componentDidMount() {
@@ -32,6 +37,11 @@ export default class App extends Component {
         passphrase: this.generatePassphrase()
       })
     }
+
+    document.addEventListener('copy', e => {
+      e.clipboardData.setData('text/plain', this.state.passphrase)
+      e.preventDefault()
+    });
   }
 
   generatePassphrase () {
@@ -61,6 +71,14 @@ export default class App extends Component {
     window.location = `${process.env.DOMAIN}/#${phrase}`
   }
 
+  copyToClipboard () {
+    try {
+      document.execCommand('copy')
+    } catch (e) {
+      console.log('Oops, unable to copy', e)
+    }
+  }
+
   render() {
     return (
       <div>
@@ -70,7 +88,15 @@ export default class App extends Component {
         </div>
         <div style={passphrase}>
           <div style={passphraseRow}>
-            Your new passphrase - <a style={cursorPointer}>{this.state.passphrase}</a>
+            Your new passphrase - <TooltipLink
+                                    className="passphrase"
+                                    style={passphraseLink}
+                                    href={`#${this.state.passphrase}`}
+                                    tooltip="Click to copy to clipboard"
+                                    onClick={this.copyToClipboard}
+                                  >
+                                    {this.state.passphrase}
+                                  </TooltipLink>
           </div>
           <div style={passphraseRow}>
             <a style={cursorPointer} onClick={this.changePassphrase}>Generate new Passphrase</a>

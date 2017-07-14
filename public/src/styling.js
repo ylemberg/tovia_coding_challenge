@@ -70,3 +70,7 @@ export const cursorPointer = {
 export const formHeader = {
   margin: '10px 0 0 10px'
 }
+
+export const passphraseLink = {
+  display: 'inline-block'
+}
