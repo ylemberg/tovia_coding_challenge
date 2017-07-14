@@ -17,7 +17,7 @@ export default class FormInput extends Component {
       message: '',
       date: '',
       firstInitial: '',
-      decryptedMsg: 'dsjkfs23r3hrhro3festrif3odfewffdslkjflkd2343l2k4jlj324lkj23lk4j23kl4jkl32j4lk23j4lk3j4lklggfdsjkfs23r3hrhro3festrif3odfewfdsjkfs23r3hrhro3festrif3odfewffdslkjflkd2343l2k4jlj324lkj23lk4j23kl4jkl32j4lk23j4lk3j4lklggfdsjkfs23r3hrhro3festrif3odfewf',
+      decryptedMsg: '',
       displayDialog: false
     }
 
@@ -59,10 +59,14 @@ export default class FormInput extends Component {
       axios.post('/encrypt', {
         message: this.state.message,
         name: this.state.name,
-        date: this.state.date,
+        date: this.state.date.toDateString(),
         passphrase: this.props.passphrase
       }).then(res => {
-        this.setState({displayDialog: !this.state.displayDialog})
+        this.setState({
+          ...this.state,
+          displayDialog: !this.state.displayDialog,
+          decryptedMsg: res.data
+        })
       }).catch(err => {
         console.log('Error encrypting message', err)
       })
