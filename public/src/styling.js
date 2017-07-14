@@ -1,9 +1,9 @@
 export const toviaForm = {
-  width: '30%',
-  height: '50%',
   border: '1px solid black',
   'box-shadow': '3px 3px 2px #888888',
-  margin: '0 auto'
+  height: '50%',
+  margin: '0 auto',
+  width: '30%'
 }
 
 export const body = {
@@ -15,24 +15,26 @@ export const fitToParentHeight = {
 }
 
 export const avatar = {
-  display: 'inline-block',
+  'background-color': 'gray',
   borderRadius: '50%',
+  'box-sizing': 'border-box',
   color: 'white',
+  display: 'inline-block',
+  'font-family': "'Roboto', 'Helvetica', 'Arial', sans-serif;",
   'font-size': '24px',
   height: '40px',
+  margin: '0 15px',
   overflow: 'hidden',
-  'text-align': 'center',
-  position: 'relative',
-  'vertical-align': 'middle',
-  width: '40px',
-  'box-sizing': 'border-box',
-  'background-color': 'gray',
   'padding-top': '10px',
-  'font-family': "'Roboto', 'Helvetica', 'Arial', sans-serif;",
-  'margin-right': '10px'
+  position: 'relative',
+  'text-align': 'center',
+  'vertical-align': 'middle',
+  width: '40px'
 }
 
 export const nameLabel = {
   display: 'inline-block',
   width: '40%'
 }
+
+// export const 

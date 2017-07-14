@@ -12,18 +12,30 @@ export default class FormInput extends Component {
     this.state = {
       name: '',
       message: '',
-      date: ''
+      date: '',
+      firstInitial: ''
     }
   }
 
   handleChange(name, value) {
-    this.setState({...this.state, [name]: value})
+
+    if (name === 'name') {
+      let firstLetter = value[0]
+      firstLetter = firstLetter ? firstLetter.toUpperCase() : ''
+      this.setState({
+        ...this.state,
+        firstInitial: firstLetter,
+        [name]: value
+      })
+      } else {
+      this.setState({ ...this.state, [name]: value })
+    }
   }
 
   render() {
     return (
       <div>
-        <div style={avatar}>S</div>
+        <div style={avatar}>{this.state.firstInitial}</div>
         <div style={nameLabel}>
           <Input type='text' label='Name' name='name' value={this.state.name} onChange={this.handleChange.bind(this, 'name')} />
         </div>
