@@ -21,3 +21,5 @@ SALT=10
 * To view app, go to `http://127.0.0.1:1337`
 
 * For context of how the app should run please view [this gif](https://media.giphy.com/media/l0Iye9w3CFoz5rP2w/source.gif)
+
+* Also I wanted to point out I'm aware the code in here could be more modular and clean. I prioritized functionality over code quality. Given more bandwidth I would make the code much better.
