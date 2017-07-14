@@ -23,16 +23,17 @@ const hashAndPersistData = formData => {
   return hash
 }
 
+const expired = expirationDate => currTime.getTime() < expirationDate.getTime()
+
 const retrieveData = (potentialHash, potentialPassphrase, errCb, successCb) => {
   Message
     .findOne({
       hash: potentialHash
     }, (err, foundMsg) => {
-      console.log('foundMsg', foundMsg)
       if (err || !foundMsg) {
         errCb()
       } else {
-        if (potentialHash === foundMsg.hash && potentialPassphrase === foundMsg.passphrase) {
+        if (potentialHash === foundMsg.hash && potentialPassphrase === foundMsg.passphrase && !expired(foundMsg.expiration)) {
           successCb(Object.assign({}, {
             name: foundMsg.name,
             message: foundMsg.message,

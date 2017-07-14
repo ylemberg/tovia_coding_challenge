@@ -9,7 +9,7 @@ require('../db/config')
 const routes = require('./routes')
 const app = express()
 
-app.use(express.static(`${__dirname}/../public/build`))
+app.use(express.static(`${__dirname}/../public/app`))
 app.use(bodyParser.json())
 app.use(cors())
 app.use(morgan('tiny'))

@@ -2,7 +2,7 @@
 node_modules
 
 ** webpack **
-public/build
+public/app/build
 
 ** miscellaneous **
 .DS_Store

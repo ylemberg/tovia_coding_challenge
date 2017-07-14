@@ -3,7 +3,7 @@ const webpack = require('webpack')
 const DotenvPlugin = require('webpack-dotenv-plugin')
 
 const SRC_DIR = path.resolve(__dirname, 'public/src')
-const BUILD_DIR = path.resolve(__dirname, 'public/build')
+const BUILD_DIR = path.resolve(__dirname, 'public/app/build')
 
 const settings = {
   entry: {
