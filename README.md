@@ -12,6 +12,10 @@ DOMAIN="http://localhost:1337"
 
 SALT=10
 
+DB_USER='test_user'
+
+DB_PASSWORD='test_password'
+
 * If you don't already, globally install nodemon `npm install -g nodemon` or `yarn -g nodemon`
 
 * In one terminal window run `npm run build` or `yarn build`

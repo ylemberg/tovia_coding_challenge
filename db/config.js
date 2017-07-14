@@ -1,5 +1,5 @@
 var mongoose = require('mongoose')
-var dburl = 'mongodb://test_user:test_password@ds157682.mlab.com:57682/tovia-coding-challenge'
+var dburl = `mongodb://${process.env.DB_USER}:${process.env.DB_PASSWORD}@ds157682.mlab.com:57682/tovia-coding-challenge`
 
 mongoose.connect(dburl)
 
