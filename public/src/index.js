@@ -6,6 +6,6 @@ import { possiblePassphraseChars } from './utils'
 import { fitToParentHeight } from './styling'
 
 ReactDOM.render(
-  <App style={fitToParentHeight} passphraseCharCodes={possiblePassphraseChars()}/>,
+  <App className="fit-to-parent-height" passphraseCharCodes={possiblePassphraseChars()}/>,
   document.getElementById('root')
 )

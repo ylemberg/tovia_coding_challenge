@@ -3,7 +3,6 @@ import React, { Component } from 'react'
 import Tooltip from 'react-toolbox/lib/tooltip';
 import Link from 'react-toolbox/lib/link';
 import FormInput from './FormInput'
-import { cursorPointer, passphrase, passphraseRow, toviaForm, formHeader, passphraseLink } from '../styling'
 
 const TooltipLink = Tooltip(Link);
 
@@ -77,16 +76,15 @@ export default class App extends Component {
   render() {
     return (
       <div>
-        <div style={toviaForm}>
-          <h2 style={formHeader}> {this.state.formHeader} </h2>
+        <div className="tovia-form">
+          <h2 className="form-header"> {this.state.formHeader} </h2>
           <FormInput passphrase={this.state.passphrase}/>
         </div>
-        <div style={passphrase}>
-          <div style={passphraseRow}>
+        <div className="passphrase">
+          <div className="passphrase-row">
             Your new passphrase -&nbsp;
             <TooltipLink
               className="passphrase"
-              style={passphraseLink}
               href={`#${this.state.passphrase}`}
               tooltip="Click to copy to clipboard"
               tooltipPosition="top"
@@ -95,8 +93,8 @@ export default class App extends Component {
               {this.state.passphrase}
             </TooltipLink>
           </div>
-          <div style={passphraseRow}>
-            <a style={cursorPointer} onClick={this.changePassphrase}>Generate new Passphrase</a>
+          <div className="passphrase-row">
+            <a className="cursor-pointer" onClick={this.changePassphrase}>Generate new Passphrase</a>
           </div>
         </div>
       </div>

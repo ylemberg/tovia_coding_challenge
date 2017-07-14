@@ -7,8 +7,6 @@ import DatePicker from 'react-toolbox/lib/date_picker'
 import { Button } from 'react-toolbox/lib/button'
 import Dialog from 'react-toolbox/lib/dialog'
 
-import { avatar, nameLabel, wideInput, formBtns, dialogBtns, passphrase, passphraseVal, generatePassphrase, formBtnsContainer } from '../styling'
-
 export default class FormInput extends Component {
   constructor() {
     super()
@@ -38,7 +36,6 @@ export default class FormInput extends Component {
       e.preventDefault()
     })
   }
-
 
   handleChange(name, value) {
     if (name === 'name') {
@@ -112,11 +109,11 @@ export default class FormInput extends Component {
   render() {
     return (
       <div>
-        <div style={avatar}>{this.state.firstInitial}</div>
-        <div style={nameLabel}>
+        <div className="avatar">{this.state.firstInitial}</div>
+        <div className="name-label">
           <Input type='text' label='Name' name='name' value={this.state.name} onChange={val => this.handleChange('name', val)} />
         </div>
-        <div style={wideInput}>
+        <div className="wide-input">
           <Input
             required
             type='text'
@@ -128,24 +125,24 @@ export default class FormInput extends Component {
             multiline={true}
           />
         </div>
-        <div style={wideInput}>
+        <div className="wide-input">
           <DatePicker
-          style={wideInput}
+          className="wide-input"
           label='Expiration Date'
           sundayFirstDayOfWeek
           onChange={val => this.handleChange('date', val)}
           value={this.state.date}
         />
         </div>
-         <div style={formBtnsContainer}>
+         <div className="form-btns-container">
           <Button
-            style={formBtns}
+            className="form-btns"
             label='ENCRYPT'
             flat
             onClick={this.handleToggleEncrypt}
           />
           <Button
-            style={formBtns}
+            className="form-btns"
             label='DECRYPT'
             flat
             onClick={this.handleToggle}
@@ -166,15 +163,15 @@ export default class FormInput extends Component {
             onChange={val => this.handleChange('encryptedMsg', val)}
             multiline={true}
           />
-          <div style={dialogBtns}>
+          <div className="dialog-btns">
             <Button
-              style={formBtns}
+              className="form-btns"
               label='CLOSE'
               flat
               onClick={this.handleToggle}
             />
             <Button
-              style={formBtns}
+              className="form-btns"
               label='DECRYPT'
               flat
               onClick={this.handleToggleDecrypt}

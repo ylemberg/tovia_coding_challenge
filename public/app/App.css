@@ -1,0 +1,76 @@
+body {
+  height: 100vh;
+}
+
+.fit-parent-height {
+  height: 100%;
+}
+
+.tovia-form {
+  border: 1px solid black;
+  box-shadow: 3px 3px 2px #888888;
+  height: 50%;
+  margin: 0 auto;
+  width: 25%;
+}
+
+.avatar {
+  background-color: gray;
+  border-radius: 50%;
+  box-sizing: border-box;
+  color: white;
+  display: inline-block;
+  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
+  font-size: 24px;
+  height: 40px;
+  margin: 0 15px;
+  overflow: hidden;
+  padding-top: 10px;
+  position: relative;
+  text-align: center;
+  vertical-align: center;
+  width: 40px;
+}
+
+.name-label {
+  display: inline-block;
+  width: 40%;
+}
+
+.wide-input {
+  width: 80%;
+  margin-left: 10%;
+}
+
+.form-btns-container {
+  margin: 20px 0 5px 0;
+}
+
+.form-btns, .passphrase-link {
+  display: inline-block;
+}
+
+.dialog-btns {
+  margin: 15px 0;
+  float: right;
+}
+
+.passphrase {
+  height: 15%;
+  margin: 0 auto;
+  width: 30%;
+}
+
+.passphrase-row {
+  margin: 5% auto;
+  text-align: center;
+  width: 70%;
+}
+
+.cursor-pointer {
+  cursor: pointer;
+}
+
+.form-header {
+  margin: 10px 0px 0px 10px;
+}
