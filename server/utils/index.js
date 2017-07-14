@@ -28,14 +28,19 @@ const retrieveData = (potentialHash, potentialPassphrase, errCb, successCb) => {
     .findOne({
       hash: potentialHash
     }, (err, foundMsg) => {
-      if (err) {
+      console.log('foundMsg', foundMsg)
+      if (err || !foundMsg) {
         errCb()
       } else {
-        successCb(Object.assign({}, {
-          name: foundMsg.name,
-          message: foundMsg.message,
-          expiration: foundMsg.expiration
-        }))
+        if (potentialHash === foundMsg.hash && potentialPassphrase === foundMsg.passphrase) {
+          successCb(Object.assign({}, {
+            name: foundMsg.name,
+            message: foundMsg.message,
+            expiration: foundMsg.expiration
+          }))
+        } else {
+          errCb()
+        }
       }
     })
 }

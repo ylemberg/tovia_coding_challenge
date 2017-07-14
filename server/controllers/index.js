@@ -3,7 +3,7 @@ const { hashAndPersistData, retrieveData } = require('../utils')
 const decrypt = {
   get: (req, res) => {
     retrieveData(req.query.hash, req.query.passphrase, err => {
-      res.send('failed to retrive hash')
+      res.status(400).send('failed to retrive hash')
     }, formData => {
       res.send(JSON.stringify(formData))
     })

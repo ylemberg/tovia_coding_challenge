@@ -26,7 +26,6 @@ export default class FormInput extends Component {
     this.encryptFormData = this.encryptFormData.bind(this)
     this.handleToggleEncrypt = this.handleToggleEncrypt.bind(this)
     this.handleToggleDecrypt = this.handleToggleDecrypt.bind(this)
-    this.handleHashValueChange = this.handleHashValueChange.bind(this)
   }
 
   componentDidMount() {
@@ -80,16 +79,13 @@ export default class FormInput extends Component {
           })
         }).catch(err => {
           console.log('err decrypting hash', err)
+          alert('message has either expired or is an invalid encrypted message.')
         })
     }
   }
 
   handleToggle() {
     this.setState({displayDialog: !this.state.displayDialog})
-  }
-
-  handleHashValueChange(val) {
-    thi
   }
 
   encryptFormData () {
