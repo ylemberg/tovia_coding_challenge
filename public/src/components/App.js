@@ -37,14 +37,9 @@ export default class App extends Component {
         passphrase: this.generatePassphrase()
       })
     }
-
-    document.addEventListener('copy', e => {
-      e.clipboardData.setData('text/plain', this.state.passphrase)
-      e.preventDefault()
-    });
   }
 
-  generatePassphrase () {
+  generatePassphrase() {
     let newPassphrase = ''
     const possibleChars = this.state.passphrasePossibleChars
 
@@ -65,13 +60,13 @@ export default class App extends Component {
     })
   }
 
-  changePassphrase () {
+  changePassphrase() {
     const phrase = this.generatePassphrase()
     this.rerenderPassphrase(phrase)
     window.location = `${process.env.DOMAIN}/#${phrase}`
   }
 
-  copyToClipboard () {
+  copyToClipboard() {
     try {
       document.execCommand('copy')
     } catch (e) {

@@ -17,14 +17,29 @@ export default class FormInput extends Component {
       message: '',
       date: '',
       firstInitial: '',
-      decryptedMsg: '',
+      encryptedMsg: '',
       displayDialog: false
     }
 
     this.handleChange = this.handleChange.bind(this)
     this.handleToggle = this.handleToggle.bind(this)
     this.encryptFormData = this.encryptFormData.bind(this)
+    this.handleToggleEncrypt = this.handleToggleEncrypt.bind(this)
+    this.handleToggleDecrypt = this.handleToggleDecrypt.bind(this)
+    this.handleHashValueChange = this.handleHashValueChange.bind(this)
   }
+
+  componentDidMount() {
+    document.addEventListener('copy', e => {
+      if (this.state.displayDialog) {
+        e.clipboardData.setData('text/plain', this.state.encryptedMsg)
+      } else {
+        e.clipboardData.setData('text/plain', this.props.passphrase)
+      }
+      e.preventDefault()
+    })
+  }
+
 
   handleChange(name, value) {
     if (name === 'name') {
@@ -44,12 +59,37 @@ export default class FormInput extends Component {
     }
   }
 
-  handleToggle = () => {
+  handleToggleEncrypt() {
     if (!this.state.displayDialog) {
       this.encryptFormData()
     } else {
       this.setState({displayDialog: !this.state.displayDialog})
     }
+  }
+
+  handleToggleDecrypt() {
+    if (this.state.encryptedMsg.length) {
+      axios.get(`/decrypt?hash=${this.state.encryptedMsg}&passphrase=${this.props.passphrase}`)
+        .then(({ data }) => {
+          this.setState({
+            ...this.state,
+            name: data.name,
+            date: new Date(data.expiration),
+            message: data.message,
+            displayDialog: !this.state.displayDialog
+          })
+        }).catch(err => {
+          console.log('err decrypting hash', err)
+        })
+    }
+  }
+
+  handleToggle() {
+    this.setState({displayDialog: !this.state.displayDialog})
+  }
+
+  handleHashValueChange(val) {
+    thi
   }
 
   encryptFormData () {
@@ -59,13 +99,13 @@ export default class FormInput extends Component {
       axios.post('/encrypt', {
         message: this.state.message,
         name: this.state.name,
-        date: this.state.date.toDateString(),
+        expiration: this.state.date.toDateString(),
         passphrase: this.props.passphrase
       }).then(res => {
         this.setState({
           ...this.state,
           displayDialog: !this.state.displayDialog,
-          decryptedMsg: res.data
+          encryptedMsg: res.data
         })
       }).catch(err => {
         console.log('Error encrypting message', err)
@@ -106,16 +146,16 @@ export default class FormInput extends Component {
             style={formBtns}
             label='ENCRYPT'
             flat
-            onClick={this.handleToggle}
+            onClick={this.handleToggleEncrypt}
           />
           <Button
             style={formBtns}
             label='DECRYPT'
             flat
+            onClick={this.handleToggle}
           />
         </div>
         <Dialog
-          actions={this.actions}
           active={this.state.displayDialog}
           onEscKeyDown={this.handleToggle}
           onOverlayClick={this.handleToggle}
@@ -126,7 +166,8 @@ export default class FormInput extends Component {
             type='text'
             label='Message'
             name='message'
-            value={this.state.decryptedMsg}
+            value={this.state.encryptedMsg}
+            onChange={val => this.handleChange('encryptedMsg', val)}
             multiline={true}
           />
           <div style={dialogBtns}>
@@ -138,8 +179,9 @@ export default class FormInput extends Component {
             />
             <Button
               style={formBtns}
-              label='ENCRYPT'
+              label='DECRYPT'
               flat
+              onClick={this.handleToggleDecrypt}
             />
           </div>
         </Dialog>

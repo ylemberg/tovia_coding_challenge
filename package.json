@@ -19,6 +19,7 @@
     "css-loader": "^0.28.4",
     "dotenv": "^4.0.0",
     "express": "^4.15.3",
+    "mongoose": "^4.11.2",
     "morgan": "^1.8.2",
     "nodemon": "^1.11.0",
     "postcss": "6.0.6",

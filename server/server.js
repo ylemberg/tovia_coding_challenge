@@ -4,6 +4,8 @@ const cors = require('cors')
 const morgan = require('morgan')
 require('dotenv').config()
 
+require('../db/config')
+
 const routes = require('./routes')
 const app = express()
 

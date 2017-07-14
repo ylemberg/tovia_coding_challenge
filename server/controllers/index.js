@@ -1,14 +1,18 @@
-const { addMessageToDb } = require('../utils')
+const { hashAndPersistData, retrieveData } = require('../utils')
 
 const decrypt = {
   get: (req, res) => {
-    res.send('hai get decrypt')
+    retrieveData(req.query.hash, req.query.passphrase, err => {
+      res.send('failed to retrive hash')
+    }, formData => {
+      res.send(JSON.stringify(formData))
+    })
   }
 }
 
 const encrypt = {
   post: (req, res) => {
-    res.send(addMessageToDb(req.body))
+    res.send(hashAndPersistData(req.body))
   }
 }
 

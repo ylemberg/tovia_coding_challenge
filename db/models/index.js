@@ -1,6 +1,6 @@
 var mongoose = require('mongoose');
 
-var orderSchema = new mongoose.Schema({
+var messageSchema = new mongoose.Schema({
   passphrase: String,
   hash: String,
   name: String,
