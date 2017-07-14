@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import axios from 'axios'
 
 import Input from 'react-toolbox/lib/input'
 import Avatar from 'react-toolbox/lib/avatar'
@@ -17,29 +18,55 @@ export default class FormInput extends Component {
       date: '',
       firstInitial: '',
       decryptedMsg: 'dsjkfs23r3hrhro3festrif3odfewffdslkjflkd2343l2k4jlj324lkj23lk4j23kl4jkl32j4lk23j4lk3j4lklggfdsjkfs23r3hrhro3festrif3odfewfdsjkfs23r3hrhro3festrif3odfewffdslkjflkd2343l2k4jlj324lkj23lk4j23kl4jkl32j4lk23j4lk3j4lklggfdsjkfs23r3hrhro3festrif3odfewf',
-      active: false
+      displayDialog: false
     }
 
     this.handleChange = this.handleChange.bind(this)
     this.handleToggle = this.handleToggle.bind(this)
+    this.encryptFormData = this.encryptFormData.bind(this)
   }
 
   handleChange(name, value) {
     if (name === 'name') {
       let firstLetter = value[0]
       firstLetter = firstLetter ? firstLetter.toUpperCase() : ''
+
       this.setState({
         ...this.state,
         firstInitial: firstLetter,
         [name]: value
       })
     } else {
-      this.setState({ ...this.state, [name]: value })
+      this.setState({
+        ...this.state,
+        [name]: value
+      })
     }
   }
 
   handleToggle = () => {
-    this.setState({active: !this.state.active});
+    if (!this.state.displayDialog) {
+      this.encryptFormData()
+    } else {
+      this.setState({displayDialog: !this.state.displayDialog})
+    }
+  }
+
+  encryptFormData () {
+    const validForm = this.state.name.length && this.state.message.length && this.state.date !== '' && this.props.passphrase.length
+
+    if (validForm) {
+      axios.post('/encrypt', {
+        message: this.state.message,
+        name: this.state.name,
+        date: this.state.date,
+        passphrase: this.props.passphrase
+      }).then(res => {
+        this.setState({displayDialog: !this.state.displayDialog})
+      }).catch(err => {
+        console.log('Error encrypting message', err)
+      })
+    }
   }
 
   render() {
@@ -58,6 +85,7 @@ export default class FormInput extends Component {
             value={this.state.message}
             onChange={val => this.handleChange('message', val)}
             maxLength={120}
+            multiline={true}
           />
         </div>
         <div style={wideInput}>
@@ -84,7 +112,7 @@ export default class FormInput extends Component {
         </div>
         <Dialog
           actions={this.actions}
-          active={this.state.active}
+          active={this.state.displayDialog}
           onEscKeyDown={this.handleToggle}
           onOverlayClick={this.handleToggle}
           title='De/Encrypt'

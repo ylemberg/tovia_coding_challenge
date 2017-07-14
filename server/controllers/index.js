@@ -6,6 +6,7 @@ const decrypt = {
 
 const encrypt = {
   post: (req, res) => {
+    console.log('req.body', req.body)
     res.send('hai post encrypt')
   }
 }

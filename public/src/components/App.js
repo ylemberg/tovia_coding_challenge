@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 
 import FormInput from './FormInput'
-import { cursorPointer, passphrase, passphraseRow, toviaForm } from '../styling'
+import { cursorPointer, passphrase, passphraseRow, toviaForm, formHeader } from '../styling'
 
 export default class App extends Component {
   constructor(props) {
@@ -19,10 +19,19 @@ export default class App extends Component {
 
   componentDidMount() {
     const url = document.URL
-    const startOfPassphrase = url.lastIndexOf('#') + 1
-    this.setState({
-      passphrase: url.substr(startOfPassphrase)
-    })
+
+    if (url.lastIndexOf('#') !== -1) {
+      const startOfPassphrase = url.lastIndexOf('#') + 1
+      this.setState({
+        ...this.state,
+        passphrase: url.substr(startOfPassphrase)
+      })
+    } else {
+      this.setState({
+        ...this.state,
+        passphrase: this.generatePassphrase()
+      })
+    }
   }
 
   generatePassphrase () {
@@ -56,8 +65,8 @@ export default class App extends Component {
     return (
       <div>
         <div style={toviaForm}>
-          <h3> {this.state.formHeader} </h3>
-          <FormInput />
+          <h3 style={formHeader}> {this.state.formHeader} </h3>
+          <FormInput passphrase={this.state.passphrase}/>
         </div>
         <div style={passphrase}>
           <div style={passphraseRow}>

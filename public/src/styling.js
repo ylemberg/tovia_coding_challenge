@@ -3,7 +3,7 @@ export const toviaForm = {
   boxShadow: '3px 3px 2px #888888',
   height: '50%',
   margin: '0 auto',
-  width: '30%'
+  width: '25%'
 }
 
 export const body = {
@@ -47,6 +47,7 @@ export const formBtns = {
 }
 
 export const dialogBtns = {
+  marginTop: '15px',
   float: 'right'
 }
 
@@ -64,4 +65,8 @@ export const passphraseRow = {
 
 export const cursorPointer = {
   cursor: 'pointer'
+}
+
+export const formHeader = {
+  margin: '10px 0 0 10px'
 }

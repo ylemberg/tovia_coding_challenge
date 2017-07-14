@@ -1,9 +1,9 @@
 const router = require('express').Router()
-const ctrl = require('../controllers')
+const { encrypt, decrypt } = require('../controllers')
 
-router.post('/encrypt', ctrl.encrypt.post)
+router.post('/encrypt', encrypt.post)
 
-router.get('/decrypt', ctrl.decrypt.get)
+router.get('/decrypt', decrypt.get)
 
 router.get('*', (req, res) => {
   if (req.url[0] === '#') {
