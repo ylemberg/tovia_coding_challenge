@@ -19,3 +19,5 @@ SALT=10
 * In another terminal window run `npm start` or `yarn start`
 
 * To view app, go to `http://127.0.0.1:1337`
+
+* For context of how the app should run please view [this gif](https://media.giphy.com/media/l0Iye9w3CFoz5rP2w/source.gif)
