@@ -1,5 +1,5 @@
 export const toviaForm = {
-  width: '40%',
+  width: '30%',
   height: '50%',
   border: '1px solid black',
   'box-shadow': '3px 3px 2px #888888',
@@ -15,6 +15,7 @@ export const fitToParentHeight = {
 }
 
 export const avatar = {
+  display: 'inline-block',
   borderRadius: '50%',
   color: 'white',
   'font-size': '24px',
@@ -27,5 +28,11 @@ export const avatar = {
   'box-sizing': 'border-box',
   'background-color': 'gray',
   'padding-top': '10px',
-  'font-family': "'Roboto', 'Helvetica', 'Arial', sans-serif;"
+  'font-family': "'Roboto', 'Helvetica', 'Arial', sans-serif;",
+  'margin-right': '10px'
+}
+
+export const nameLabel = {
+  display: 'inline-block',
+  width: '40%'
 }
