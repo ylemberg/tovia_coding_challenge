@@ -4,7 +4,7 @@
 
 * In the root directory create a `.env` file
 
-* In that file add these 3 lines (typically you wouldn't push your environment variables to Github but for presentation purpose I've display them here)
+* In that file add these 3 lines (typically you wouldn't push your environment variables to Github but for presentation purpose I've displayed them here)
 
 PORT=1337
 
