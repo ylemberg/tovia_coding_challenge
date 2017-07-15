@@ -6,17 +6,13 @@
 
 * In that file add these 3 lines (typically you wouldn't push your environment variables to Github but for presentation purpose I've displayed them here)
 
-PORT=1337
-
+```PORT=1337
 DOMAIN="http://localhost:1337"
-
 SALT=10
-
 DB_USER='test_user'
+DB_PASSWORD='test_password'```
 
-DB_PASSWORD='test_password'
-
-* If you don't already, globally install nodemon `npm install -g nodemon` or `yarn -g nodemon`
+* If you haven't already, globally install nodemon `npm install -g nodemon` or `yarn -g nodemon`
 
 * In one terminal window run `npm run build` or `yarn build`
 
